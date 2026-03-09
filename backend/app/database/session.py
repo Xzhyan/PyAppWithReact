@@ -1,21 +1,19 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from app.core.config import settings
+from app.core import settings
 
-# Criando a engine
 engine = create_engine(
     settings.DATABASE_URL,
     connect_args={"check_same_thread": False}
 )
 
-# Criando a sessão
 SessionLocal = sessionmaker(
     autocommit=False,
     autoflush=False,
     bind=engine
 )
 
-# Dependency pro fastapi
+# Dependencia do DB para usar nas rotas
 def get_db():
     db = SessionLocal()
     try:
