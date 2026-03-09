@@ -1,16 +1,12 @@
 from fastapi import FastAPI
-from backend.app.core.middleware import register_middleware
-from backend.app.api.routes import router
-from backend.app.database.session import engine
-from backend.app.database.base import Base
 
 def create_app() -> FastAPI:
-    app = FastAPI()
+    """Montagem do app e suas configs"""
 
-    register_middleware(app)
-    app.include_router(router)
-
-    Base.metadata.create_all(bind=engine)
+    app = FastAPI(
+        title="Learn FastAPI",
+        version="1.0.0"
+    )
 
     return app
 
