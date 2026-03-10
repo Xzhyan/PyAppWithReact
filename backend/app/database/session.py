@@ -1,10 +1,10 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from app.core import settings
+from app.core.config import settings
 
 engine = create_engine(
     settings.DATABASE_URL,
-    connect_args={"check_same_thread": False}
+    connect_args={'check_same_thread': False} 
 )
 
 SessionLocal = sessionmaker(
@@ -13,7 +13,7 @@ SessionLocal = sessionmaker(
     bind=engine
 )
 
-# Dependencia do DB para usar nas rotas
+# Dependencia do banco de dados, para usar nas routes
 def get_db():
     db = SessionLocal()
     try:
