@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from app.core.middleware import setup_cors
+from app.api.routes import api_router
 
 def create_app() -> FastAPI:
     """Montagem do app e suas configs"""
@@ -12,6 +13,9 @@ def create_app() -> FastAPI:
 
     # CORSMiddleware
     setup_cors(app)
+
+    # Inclui rotas
+    app.include_router(api_router)
     
     # Retorna o app
     return app
