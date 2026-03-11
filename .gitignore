@@ -40,6 +40,9 @@ backend/htmlcov/
 backend/**/migrations/__pycache__/
 backend/**/migrations/*.pyc
 
+## Banco de Dados
+backend/data/database.db
+
 ################################
 # NODE / REACT (frontend/)
 ################################
