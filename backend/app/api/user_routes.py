@@ -1,10 +1,10 @@
-from fastapi import APIRouter
+# from fastapi import APIRouter
 
-user_router = APIRouter(
-    prefix='/users',
-    tags=['Users']
-)
+# user_router = APIRouter(
+#     prefix='/users',
+#     tags=['Users']
+# )
 
-@user_router.get('/')
-def users():
-    return {'message': "Usuários!"}
+# @user_router.get('/')
+# def users():
+#     return {'message': "Usuários!"}

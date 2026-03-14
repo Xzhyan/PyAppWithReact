@@ -1,17 +1,16 @@
 from fastapi import FastAPI
-
-# Base e engine
 from app.database import Base, engine
-
-# Config e CORS
 from app.core import settings, setup_cors
 
-# Routes
-from app.api.routes import api_router
-
-# Modelos
+# models
+from app.models.perms import Permission
 from app.models.role import Role
 from app.models.user import User
+from app.models.auth_token import AuthToken
+
+# router da api
+from app.api.routes import api_router
+
 
 def create_app() -> FastAPI:
     """Factory function da api"""
@@ -29,7 +28,7 @@ def create_app() -> FastAPI:
     # CORSMiddleware
     setup_cors(app)
 
-    # Rotas
+    # incluindo router da api ao app
     app.include_router(api_router)
 
     return app

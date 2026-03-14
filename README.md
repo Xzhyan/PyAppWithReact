@@ -20,3 +20,23 @@
 ---
 
 Banco de Dados (Global)
+
+
+Permissions (Permissões)
+- id
+- name
+(Acessar)
+
+Role (Cargo)
+- id
+- name
+- permissions (many to many)
+
+User (Usuário)
+- id
+- username
+- password
+- role_id
+- token (token temporario gerado pelo sistema global onde o usuario faz autenticação semanal/mensal)
+- is_active
+
